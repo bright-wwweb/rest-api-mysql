@@ -42,7 +42,7 @@ func getPosts(w http.ResponseWriter, r *http.Request) {
 	var posts []Post
 	result, err := db.Query("SELECT id, title from posts")
 	if err != nil {
-		panic(err.Error())
+		panic(err.Error("error"))
 	}
 	defer result.Close()
 	for result.Next() {
